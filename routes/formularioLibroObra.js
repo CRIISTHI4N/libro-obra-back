@@ -11,7 +11,7 @@ import {
 import { upload } from "../libs/storage.js";
 
 router.get('/obtener-formulario', obtenerFormularioLibroObra);
-router.post('/ingresar', upload.array('actividad'), ingresarFormularioLibroObra);
+router.post('/ingresar', upload.fields([{ name: 'actividad', maxCount: 40 }, { name: 'anexo', maxCount: 40 }]), ingresarFormularioLibroObra);
 router.put('/editar', editarFormularioLibroObra);
 router.delete('/eliminar', eliminarFormularioLibroObra);
 

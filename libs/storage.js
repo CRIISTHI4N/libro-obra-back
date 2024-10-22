@@ -9,7 +9,10 @@ const storage = multer.diskStorage({
             cb(null, './storage/actividades')
         } else if (file.fieldname === "firmaslibro") {
             cb(null, './storage/firmaslibroobra')
+        } else {
+            cb(null, './storage/actividades')
         }
+
     },
     filename: function (req, file, cb) {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
